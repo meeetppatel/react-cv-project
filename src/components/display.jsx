@@ -1,9 +1,13 @@
 import React, { Component } from "react";
 
 class Maincont extends Component {
-    constructor() {
-        super();
-    }
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            
+        }
+    };
 
     render() {
         return (
