@@ -1,5 +1,5 @@
 import { Component } from "react";
-import { Maincont } from "./components/display";
+import { Maincont } from "./components/mainForm";
 
 class App extends Component {
   render() {
