@@ -10,7 +10,7 @@ const GenInfo = (props) => {
                 <input className="input border-4" onChange={props.change} id="email" type="text" placeholder="Email"/>
             </div>
             <div>      
-                <input className="input border-4" onChange={props.change} id="phoneNO" type="text" placeholder="Phone Number"/>
+                <input className="input border-4" onChange={props.change} id="phoneNo" type="text" placeholder="Phone Number"/>
             </div>
             <div>      
                 <input className="input border-4" onChange={props.change} id="desc" type="text" placeholder="About"/>

@@ -3,6 +3,7 @@ import { Footer } from "./footer";
 import { Header } from "./header";
 import { GenInfo } from "./info/genInfo";
 import { WorkExp } from "./info/pracExp";
+import { Cvpreview } from "./cvprev";
 import uniqid from "uniqid";
 import ReactToPrint from "react-to-print";
 
@@ -14,7 +15,7 @@ class Maincont extends Component {
       genInfo: {
         name: "",
         email: "",
-        phoneNO: "",
+        phoneNo: "",
         desc: "",
       },
 
@@ -60,6 +61,19 @@ class Maincont extends Component {
         },
       ],
     };
+    this.genInfoHandler = this.genInfoHandler.bind(this);
+  }
+
+
+  genInfoHandler = (e) => {
+    this.setState({
+      genInfo :{
+        name: document.getElementById("name").value,
+        email: document.getElementById("email").value,
+        phoneNo: document.getElementById("phoneNo").value,
+        desc: document.getElementById("desc").value,
+      },
+    });
   }
 
   loadExample = (e) => {
@@ -73,17 +87,13 @@ class Maincont extends Component {
           <Header />
         </div>
 
-        <div className="mainCont flex-grow flex flex-row w-full overflow-y-scroll">
+        <div className="mainCont flex-grow flex flex-row w-full ">
           {/* form */}
           <div className=" flex flex-col  w-1/2 mx-10">
             <div className="bg-black flex flex-col items-center my-10 p-12 md:gap-4 md:space-y-0 w-full text-white rounded-md h-full ">
               <div className="w-full text-center">
-                <GenInfo />
+                <GenInfo change={this.genInfoHandler} />
               </div>
-              <div className="w-full text-center">
-                <GenInfo />
-              </div>
-
               <div >
                 <WorkExp />
               </div>
@@ -119,9 +129,14 @@ class Maincont extends Component {
           </div>
 
           {/* cv preview */}
-          <div className=" flex flex-col mx-10 w-1/2">
-            <div className="bg-black flex flex-col items-center my-10 w-full text-white rounded-md h-full">
-              <h1 className="title">cv</h1>
+          <div className=" flex flex-col mx-10 w-1/2 h-fit">
+            <div className="bg-gray-200 order-2 flex flex-col items-center my-10 w-full text-black rounded-md h-full">
+              <Cvpreview 
+                name={this.state.genInfo.name}
+                email={this.state.genInfo.email}
+                phoneNo={this.state.genInfo.phoneNo}
+                desc={this.state.genInfo.desc}
+              />
             </div>
           </div>
         </div>
