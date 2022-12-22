@@ -6,6 +6,7 @@ import { WorkExp } from "./info/pracExp";
 import { Cvpreview } from "./cvprev";
 import uniqid from "uniqid";
 import ReactToPrint from "react-to-print";
+import { EduExp } from "./info/eduExp";
 
 class Maincont extends Component {
   constructor(props) {
@@ -94,7 +95,10 @@ class Maincont extends Component {
               <div className="w-full text-center">
                 <GenInfo change={this.genInfoHandler} />
               </div>
-              <div >
+              <div className="w-full text-center">
+                <EduExp />
+              </div>
+              <div className="w-full text-center">
                 <WorkExp />
               </div>
 
@@ -129,7 +133,7 @@ class Maincont extends Component {
           </div>
 
           {/* cv preview */}
-          <div className=" flex flex-col mx-10 w-1/2 h-fit">
+          <div className=" flex flex-col mx-10 w-1/2">
             <div className="bg-gray-200 order-2 flex flex-col items-center my-10 w-full text-black rounded-md h-full">
               <Cvpreview 
                 name={this.state.genInfo.name}
